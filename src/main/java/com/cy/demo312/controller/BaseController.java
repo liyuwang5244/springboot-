@@ -23,6 +23,9 @@ public class BaseController {
         } else if (e instanceof PasswordNotMatchException) {
             result.setState(5002);
             result.setMessage("密码不正确");
+        } else if (e instanceof UpdateException) {
+            result.setState(5003);
+            result.setMessage("更新数据时产生未知的异常");
         }
         return result;
     }

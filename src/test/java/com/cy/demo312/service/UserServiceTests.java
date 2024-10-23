@@ -20,7 +20,7 @@ public class UserServiceTests {
     public void reg(){
         try {
             User user = new User();
-            user.setUsername("root2");
+            user.setUsername("test004");
             user.setPassword("123456");
             userService.reg(user);
             System.out.println("注册成功");
@@ -36,5 +36,8 @@ public class UserServiceTests {
         System.out.println(user);
     }
 
-
+    @Test
+    public void changePassword () {
+        userService.changePassword("管理员", 12, "123456", "123");
+    }
 }

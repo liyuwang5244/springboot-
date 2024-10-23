@@ -12,9 +12,21 @@ public interface IUserService {
 
     /**
      * 用户登录
-     * @param username
-     * @param password
+     * @param username 用户名
+     * @param password 密码
      * @return 匹配的用户数据，如果没有匹配的数据，则返回null
      */
     User login(String username, String password);
+
+    /**
+     * 修改密码
+     * @param username 用户名
+     * @param uid
+     * @param oldPassword
+     * @param newPassword
+     */
+    void changePassword (String username,
+                         Integer uid,
+                         String oldPassword,
+                         String newPassword);
 }
