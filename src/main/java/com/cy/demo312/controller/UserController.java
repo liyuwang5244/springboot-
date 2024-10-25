@@ -17,6 +17,7 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
+    @Autowired
     private BaseController baseController;
 
     @RequestMapping("reg")
@@ -42,6 +43,24 @@ public class UserController {
         Integer uid = baseController.getUidFromSession(session);
         String username = baseController.getUsernameFromSession(session);
         userService.changePassword(username, uid, oldPassword, newPassword);
+        return new JsonResult<Void>(OK);
+    }
+
+    @RequestMapping("get_by_uid")
+    public JsonResult<User> getByUid (HttpSession session) {
+        Integer uid = baseController.getUidFromSession(session);
+
+        User user = userService.findByUid(uid);
+
+        return new JsonResult<>(OK, user);
+    }
+
+    @RequestMapping("change_info")
+    public JsonResult<Void> updateInfo (User user,
+                                        HttpSession session) {
+        Integer uid = baseController.getUidFromSession(session);
+        String username = baseController.getUsernameFromSession(session);
+        userService.updateInfo(username, uid, user);
         return new JsonResult<>(OK);
     }
 

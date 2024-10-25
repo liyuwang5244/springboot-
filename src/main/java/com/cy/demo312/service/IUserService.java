@@ -29,4 +29,8 @@ public interface IUserService {
                          Integer uid,
                          String oldPassword,
                          String newPassword);
+
+    User findByUid (Integer uid);
+
+    void updateInfo (String username, Integer uid, User user);
 }

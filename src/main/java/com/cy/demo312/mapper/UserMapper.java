@@ -41,4 +41,6 @@ public interface UserMapper {
      * @return 返回值为用户数据
      */
     User findByUid (Integer uid);
+
+    Integer updateInfoByUid(User user);
 }

@@ -3,8 +3,10 @@ package com.cy.demo312.controller;
 import com.cy.demo312.service.ex.*;
 import com.cy.demo312.util.JsonResult;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+@Component
 public class BaseController {
     public static final int OK = 200;
 

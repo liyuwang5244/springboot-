@@ -40,4 +40,19 @@ public class UserServiceTests {
     public void changePassword () {
         userService.changePassword("管理员", 12, "123456", "123");
     }
+
+    @Test
+    public void findByUid () {
+            User user = userService.findByUid(12);
+            System.out.println(user);
+    }
+
+    @Test
+    public void updateInfo () {
+            User user = new User();
+            user.setEmail("test@qq.com");
+            user.setPhone("27858802222");
+            user.setGender(1);
+            userService.updateInfo("管理员", 12, user);
+    }
 }
