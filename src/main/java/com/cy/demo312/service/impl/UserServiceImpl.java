@@ -130,6 +130,19 @@ public class UserServiceImpl implements IUserService {
         }
     }
 
+    @Override
+    public void changeAvatar(Integer uid, String username, String avatar) {
+        User result = userMapper.findByUid(uid);
+        if (result == null || result.getIsDelete().equals(1)) {
+            throw new UserNotFoundException("用户数据不存在");
+        }
+
+        Integer rows = userMapper.updateAvatarByUid(uid, avatar, username, new Date());
+        if (rows != 1) {
+            throw new UpdateException("更新数据产生未知的异常");
+        }
+    }
+
     /** 定义一个md5加密处理算法 */
     private String getMD5(String password, String salt) {
         for (int i = 0;i < 3; i++) {
@@ -137,6 +150,7 @@ public class UserServiceImpl implements IUserService {
         }
         return password;
     }
+
 
 
 }

@@ -33,4 +33,12 @@ public interface IUserService {
     User findByUid (Integer uid);
 
     void updateInfo (String username, Integer uid, User user);
+
+    /**
+     * 修改头像
+     * @param uid 用户id
+     * @param avatar 图像路径
+     * @param username 用户名
+     */
+    void changeAvatar (Integer uid, String username, String avatar);
 }

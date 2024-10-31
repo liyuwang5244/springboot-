@@ -20,8 +20,8 @@ public class UserMapperTests {
     @Test
     public void insert() {
         User user = new User();
-        user.setUsername("admin32131");
-        user.setPassword("admin131231");
+        user.setUsername("admin321311");
+        user.setPassword("admin1312311");
         Integer rows = userMapper.insert(user);
         System.out.println("rows=" + rows);
     }
@@ -53,5 +53,14 @@ public class UserMapperTests {
         user.setModifiedTime(new Date());
         Integer rows = userMapper.updateInfoByUid(user);
         System.out.println("rows=" + rows);
+    }
+
+    @Test
+    public void updateAvatarByUid () {
+        userMapper.updateAvatarByUid(
+                12,
+                "/upload/atatar.png",
+                "管理员",
+                new Date());
     }
 }
